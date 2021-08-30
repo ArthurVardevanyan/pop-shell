@@ -280,9 +280,11 @@ export class Search {
         wm.allowKeybinding('overlay-key', Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW)
     }
 
-    _open(timestamp: number, on_primary: boolean) {
+    _open(timestamp: number, on_primary: boolean, preload: string = '') {
         this.grab_handle = imports.ui.main.pushModal(this.dialog.dialogLayout)
         this.dialog.open(timestamp, on_primary)
+
+        this.text.set_text(preload);
 
         wm.allowKeybinding('overlay-key', Shell.ActionMode.ALL)
 

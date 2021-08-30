@@ -307,7 +307,7 @@ export class Launcher extends search.Search {
         return null
     }
 
-    open(ext: Ext) {
+    open(ext: Ext, preload: string = "") {
         ext.tiler.exit(ext);
 
         // Do not allow opening twice
@@ -323,7 +323,7 @@ export class Launcher extends search.Search {
         const mon_area = ext.monitor_area(active_monitor)
         const mon_width = mon_area ? mon_area.width : mon_work_area.width
 
-        super._open(global.get_current_time(), false)
+        super._open(global.get_current_time(), false, preload);
 
         if (!this.dialog.visible) {
             this.clear()
